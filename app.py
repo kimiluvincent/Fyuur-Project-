@@ -260,14 +260,7 @@ def create_venue_form():
 @app.route('/venues/create', methods=['POST'])
 def create_venue_submission():
   error = False
-  form=VenueForm
-
-  '''if not form.validate():
-    for fieldName, errorMessages in form.errors.items():
-      show_form_errors(fieldName, errorMessages)
-      return redirect(url_for('create_venue_form'))'''
-
-    
+  form=VenueForm    
     
   name = request.form['name']
   city = request.form['city']
@@ -331,7 +324,6 @@ def delete_venue(venue_id):
 
 
   if error:
-    abort(400)
     flash('An error occured. Venue could not completed.', 'danger')
   if not error:
     flash('Venue was successfully deleted!', 'success')
